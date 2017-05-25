@@ -1,0 +1,9 @@
+<table (contextmenu)="false;">
+    <tr *ngFor="let j of brush.size | range">
+        <td class="brushCell"
+            *ngFor="let i of brush.size | range"
+            [style.background-color]="brush.pattern[i][j] == null ? 'grey' : brush.pattern[i][j] ? 'black' : 'white'"
+            (mousedown)="changeBrush($event, i, j)"
+            (mouseenter)="brushMoveChange($event, i, j)"></td>
+    </tr>
+</table>

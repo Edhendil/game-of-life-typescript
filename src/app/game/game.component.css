@@ -1,0 +1,9 @@
+.canvas-band {
+    padding: 25px 0;
+}
+
+.brushCell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}

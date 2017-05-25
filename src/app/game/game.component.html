@@ -1,0 +1,180 @@
+<div class="container-fluid canvas-band">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <gol-canvas (gameMouseClick)="handleCanvasClick($event)" (gameMouseMove)="handleCanvasMove($event)"></gol-canvas>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Options</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <label class="control-label" for="fps">FPS limit</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input id="fps" type="text" class="form-control" value="100"
+                                                   [(ngModel)]="fpsLimit" [ngModelOptions]="{standalone: true}"
+                                                   (change)="handleFpsLimitChange()"/>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="tickerButton" type="button" class="btn btn-info btn-block"
+                                                    (click)="handleStartStopButton()"
+                                                    [innerHTML]="tickerButtonText">Start
+                                            </button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-info btn-block"
+                                                    (click)="performStep()"
+                                                    [disabled]="stepButtonDisabled">Step
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <label class="control-label" for="stateSelect">State</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <select id="stateSelect" class="form-control"
+                                                    [(ngModel)]="selectedState" [ngModelOptions]="{standalone: true}">
+                                                <option *ngFor="let state of availableStates" [ngValue]="state">{{ state.name }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button id="setStateButton" type="button" class="btn btn-info btn-block"
+                                                    (click)="handleSetStateButton()">Set state
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <label class="control-label" for="rulesSelect">Rules</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <select id="rulesSelect" class="form-control"
+                                                    [(ngModel)]="selectedRuleSet" [ngModelOptions]="{standalone: true}">
+                                                <option *ngFor="let rule of availableRules" [ngValue]="rule">{{ rule.name }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-info btn-block"
+                                                    (click)="loadRulePreset()">Set rules
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            Survive
+                                        </div>
+                                        <div *ngFor="let i of 9 | range" class="col-xs-1 text-center">
+                                            <input type="checkbox" [(ngModel)]="selectedRules?.survive[i]" [ngModelOptions]="{standalone: true}"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            Born
+                                        </div>
+                                        <div *ngFor="let i of 9 | range" class="col-xs-1 text-center">
+                                            <input type="checkbox" [(ngModel)]="selectedRules?.create[i]" [ngModelOptions]="{standalone: true}"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                            Neighbours
+                                        </div>
+                                        <div *ngFor="let i of 9 | range" class="col-xs-1 text-center">
+                                            {{i}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <label class="control-label" for="brushSelect">Brush</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <select id="brushSelect" class="form-control"
+                                                    [(ngModel)]="selectedBrush" [ngModelOptions]="{standalone: true}">
+                                                <option *ngFor="let brush of availableBrushes" [ngValue]="brush">{{brush.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn btn-info btn-block"
+                                                    (click)="loadBrush()">Load pattern
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" draggable="false">
+                                        <div class="col-md-3">
+                                            <label class="control-label">Pattern</label>
+                                        </div>
+                                        <div class="col-md-5" *ngIf="brush">
+                                            <brush-pattern [brush]="brush"></brush-pattern>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row" style="padding-bottom: 5px;">
+                                                <div class="col-xs-3">
+                                                    <div class="brushCell"
+                                                         style="margin-right: 5px; background-color: black;"></div>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <span> Left click</span>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 5px;">
+                                                <div class="col-xs-3">
+                                                    <div class="brushCell"
+                                                         style="margin-right: 5px; background-color: white;"></div>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <span> Right click</span>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 5px;">
+                                                <div class="col-xs-3">
+                                                    <div class="brushCell"
+                                                         style="margin-right: 5px; background-color: grey;"></div>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <span> Ctrl-click</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <label class="control-label" for="brushScale">Brush scale</label>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <input id="brushScale" type="integer" class="form-control"
+                                                   [ngModel]="brush?.scale" (ngModelChange)="brush.scale = $event" [ngModelOptions]="{standalone: true}" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Statistics</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        FPS
+                                    </div>
+                                    <div class="col-md-4">
+                                        {{realFps}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
