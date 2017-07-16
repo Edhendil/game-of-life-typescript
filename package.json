@@ -1,0 +1,58 @@
+{
+  "name": "game-of-life-typescript",
+  "version": "0.0.1",
+  "description": "Game of life implementation in TypeScript",
+  "readme": "README.md",
+  "author": "Tomasz Krug",
+  "license": "MIT",
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --inline --progress --port 8080",
+    "tdd": "karma start",
+    "test": "karma start --single-run",
+    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
+  },
+  "dependencies": {
+    "@angular/common": "~4.1.0",
+    "@angular/compiler": "~4.1.0",
+    "@angular/core": "~4.1.0",
+    "@angular/forms": "~4.1.0",
+    "@angular/http": "~4.1.0",
+    "@angular/platform-browser": "~4.1.0",
+    "@angular/platform-browser-dynamic": "~4.1.0",
+    "@angular/router": "~4.1.0",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "jquery": "^3.2.1",
+    "rxjs": "5.4.0",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.22",
+    "@types/jasmine": "^2.5.47",
+    "angular2-template-loader": "^0.6.0",
+    "awesome-typescript-loader": "^3.0.4",
+    "css-loader": "^0.28.2",
+    "extract-text-webpack-plugin": "~2.1.0",
+    "file-loader": "~0.11.1",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.16.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.1",
+    "null-loader": "^0.1.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.2",
+    "style-loader": "^0.18.1",
+    "typescript": "~2.3.0",
+    "webpack": "2.6.0",
+    "webpack-dev-server": "2.4.5",
+    "webpack-merge": "^4.1.0"
+  }
+}
