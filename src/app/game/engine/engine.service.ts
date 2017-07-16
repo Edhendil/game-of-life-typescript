@@ -2,9 +2,9 @@
  * Created by edhendil on 27.04.17.
  */
 import {Injectable} from "@angular/core";
-import {GameState} from "../state/gameState.model";
-import {FrameRateCalculator} from "./frameRate.service";
-import {RuleSet} from "../ruleset/ruleSet.model";
+import {GameState} from "../state/game-state.model";
+import {FrameRateCalculator} from "./frame-rate.service";
+import {RuleSet} from "../ruleset/rule-set.model";
 import {Subject} from "rxjs/Subject";
 import {Observable} from "rxjs/Observable";
 

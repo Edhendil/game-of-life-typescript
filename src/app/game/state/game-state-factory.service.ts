@@ -1,4 +1,4 @@
-import {GameState} from "./gameState.model";
+import {GameState} from "./game-state.model";
 import {Injectable} from "@angular/core";
 /**
  * Created by edhendil on 25.04.17.

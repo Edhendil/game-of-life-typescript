@@ -1,7 +1,7 @@
 /**
  * Created by edhendil on 27.04.17.
  */
-import {RuleSet} from "./ruleSet.model";
+import {RuleSet} from "./rule-set.model";
 import {Injectable} from "@angular/core";
 @Injectable()
 export class RuleSetService {

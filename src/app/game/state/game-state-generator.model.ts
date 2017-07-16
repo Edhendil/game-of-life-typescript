@@ -1,4 +1,4 @@
-import {GameState} from "./gameState.model";
+import {GameState} from "./game-state.model";
 /**
  * Created by edhendil on 27.04.17.
  */

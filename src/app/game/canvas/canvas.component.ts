@@ -3,9 +3,9 @@
  */
 import {AfterViewInit, Component, ViewChild} from "@angular/core";
 import {ElementRef,Renderer2, Output, EventEmitter} from '@angular/core';
-import {GameState} from "../state/gameState.model";
+import {GameState} from "../state/game-state.model";
 import {Point} from "../../shared/point.model";
-import {CanvasMouseEvent} from "./canvasMouseMove.event";
+import {CanvasMouseEvent} from "./canvas-mouse-move.event";
 @Component({
     selector: 'gol-canvas',
     templateUrl: './canvas.component.html',

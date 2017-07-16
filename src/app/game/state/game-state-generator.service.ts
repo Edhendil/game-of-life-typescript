@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {GameStateFactory} from "./gameStateFactory.service";
-import {GameStateGenerator} from "./gameStateGenerator.model";
+import {GameStateFactory} from "./game-state-factory.service";
+import {GameStateGenerator} from "./game-state-generator.model";
 /**
  * Created by edhendil on 27.04.17.
  */

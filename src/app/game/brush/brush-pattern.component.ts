@@ -3,12 +3,12 @@
  */
 import {Component, OnInit, Input} from '@angular/core';
 import {Brush} from "./brush.model";
-import {MouseEvents} from "../../shared/mouseEvents";
+import {MouseEvents} from "../../shared/mouse-events";
 
 @Component({
     selector: 'brush-pattern',
-    templateUrl: './brushPattern.component.html',
-    styleUrls: ['./brushPattern.component.css']
+    templateUrl: './brush-pattern.component.html',
+    styleUrls: ['./brush-pattern.component.css']
 })
 export class BrushPatternComponent implements OnInit {
 

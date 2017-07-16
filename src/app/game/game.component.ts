@@ -3,18 +3,18 @@
  */
 import {AfterViewInit, Component, OnDestroy, ViewChild} from "@angular/core";
 import {Brush} from "./brush/brush.model";
-import {GameState} from "./state/gameState.model";
-import {BrushFactory} from "./brush/brushFactory.service";
-import {RuleSet} from "./ruleset/ruleSet.model";
+import {GameState} from "./state/game-state.model";
+import {BrushFactory} from "./brush/brush-factory.service";
+import {RuleSet} from "./ruleset/rule-set.model";
 import {Subscription} from "rxjs/Subscription";
 import {CanvasComponent} from "./canvas/canvas.component";
-import {CanvasMouseEvent} from "./canvas/canvasMouseMove.event";
+import {CanvasMouseEvent} from "./canvas/canvas-mouse-move.event";
 import {Point} from "../shared/point.model";
-import {GameStateGeneratorService} from "./state/gameStateGenerator.service";
-import {GameStateGenerator} from "./state/gameStateGenerator.model";
-import {BrushGenerator} from "./brush/brushGenerator.model";
+import {GameStateGeneratorService} from "./state/game-state-generator.service";
+import {GameStateGenerator} from "./state/game-state-generator.model";
+import {BrushGenerator} from "./brush/brush-generator.model";
 import {BrushService} from "./brush/brush.service";
-import {RuleSetService} from "./ruleset/ruleSet.service";
+import {RuleSetService} from "./ruleset/rule-set.service";
 import {GameEngine} from "./engine/engine.service";
 @Component({
     selector: 'gol-game',

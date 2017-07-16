@@ -8,13 +8,13 @@ import {GameRoutingModule} from "./game-routing.module";
 import {CanvasComponent} from "./canvas/canvas.component";
 import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
-import {BrushFactory} from "./brush/brushFactory.service";
-import {GameStateFactory} from "./state/gameStateFactory.service";
-import {FrameRateCalculator} from "./engine/frameRate.service";
-import {GameStateGeneratorService} from "./state/gameStateGenerator.service";
-import {BrushPatternComponent} from "./brush/brushPattern.component";
+import {BrushFactory} from "./brush/brush-factory.service";
+import {GameStateFactory} from "./state/game-state-factory.service";
+import {FrameRateCalculator} from "./engine/frame-rate.service";
+import {GameStateGeneratorService} from "./state/game-state-generator.service";
+import {BrushPatternComponent} from "./brush/brush-pattern.component";
 import {BrushService} from "./brush/brush.service";
-import {RuleSetService} from "./ruleset/ruleSet.service";
+import {RuleSetService} from "./ruleset/rule-set.service";
 import {GameEngine} from "./engine/engine.service";
 @NgModule({
     imports: [GameRoutingModule, SharedModule],

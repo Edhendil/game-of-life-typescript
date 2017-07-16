@@ -1,6 +1,6 @@
-import {BrushGenerator} from "./brushGenerator.model";
+import {BrushGenerator} from "./brush-generator.model";
 import {Injectable} from "@angular/core";
-import {BrushFactory} from "./brushFactory.service";
+import {BrushFactory} from "./brush-factory.service";
 /**
  * Created by edhendil on 27.04.17.
  */

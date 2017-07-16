@@ -1,4 +1,4 @@
-import {RuleSet} from "../ruleset/ruleSet.model";
+import {RuleSet} from "../ruleset/rule-set.model";
 /**
  * Created by edhendil on 25.04.17.
  */

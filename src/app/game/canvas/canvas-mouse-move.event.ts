@@ -1,5 +1,5 @@
 import {Point} from "../../shared/point.model";
-import {MouseEvents} from "../../shared/mouseEvents";
+import {MouseEvents} from "../../shared/mouse-events";
 /**
  * Created by edhendil on 26.04.17.
  */
